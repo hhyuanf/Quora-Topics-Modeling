@@ -1,0 +1,19 @@
+Name                UID
+Jingyuan Fan       904186250
+
+My code is separated into 4 parts, and I will give a detailed description for each of them on how it’s implemented and why.
+
+proj1_1.py：
+  It’s the first part, which takes the assigned topics as input and outputs topic_names.txt and topic_urls.txt. In order to get the same required format, I used a stack to store the topic name as searching all the child topics, just like DFS.
+
+proj1_2.py:
+  This part of code tries to extract all the questions’s URL and store them in question_urls. All the urls of one topic are printed following a topic name, so that it’s easier to get the item “current_topic” in question 3.
+
+proj1_3.py:
+  This part of code realized what’s required in question 3. Furthermore, there are some situations need to think about. For some questions that have no answer, I assumed that user_id, data, number_of_upvotes, users_who_upvoted, answer_text are all null. Also here is one possibility that this question failed to consider. If a user gives two answers for one question, the way that the answer_id is defined in the requirement cannot be unique. So I added another part to the answer_id to identify the order of each answer. This code also outputs the url of all the users to user_list, including the user who answers questions and all users who upvotes, using click(). Here, I used a Set to ensure that there’s no duplicate user in the user_list.
+
+proj1_5.py
+  This part is similar to the previous one, and the output is user.csv. The only thing needed to consider is that sometimes some items are 0, and if using find method, it may throw an exception which should be handled well.
+
+answerParser.py and userParser.py
+  These two are similar. I built a dictionary, and used answer_id as the key. With the extra part added to the answer_id in proj1_3.py, I can uniquely identify each answer.
